@@ -15,6 +15,7 @@ class CreateInterviewTable extends Migration
     {
         Schema::create('interview', function (Blueprint $table) {
             $table->id();
+            $table->integer('user_id');
             $table->integer('pelamar_id');
             $table->string('tempat');
             $table->date('tanggal');

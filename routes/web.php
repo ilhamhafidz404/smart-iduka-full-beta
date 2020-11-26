@@ -125,7 +125,7 @@ Route::post('management/perlamar/interview/{id}/keputusan',[InterviewController:
 Route::middleware(['checkrole:user'])->group(function () {
 Route::resource('user/profile',ProfileController::class);
 Route::get('/lamaran-saya',[PelamarController::class, 'listLamaranUser'])->name('lamaran.index');
-Route::get('/user/jadwal-interiew',[InterviewController::class, 'myinterview']);
+Route::get('/user/jadwal-interiew',[InterviewController::class, 'myinterview'])->name('myinterview.index');
 
 });
 
