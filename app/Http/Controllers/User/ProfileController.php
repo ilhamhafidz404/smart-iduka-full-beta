@@ -95,7 +95,7 @@ class ProfileController extends Controller
             'tgl_lahir' => $request->tgl_lahir,
             'jk' => $request->jk,
             'agama' => $request->agama,
-            'status_nikah' => $request->status,
+            'status_nikah' => $request->status_nikah,
             'alamat' => $request->alamat,
             'no_hp' => $request->no_hp,
             'email' => $request->email,

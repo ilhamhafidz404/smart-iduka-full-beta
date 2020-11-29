@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSimpanLokerTable extends Migration
+class CreateUploadsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,15 @@ class CreateSimpanLokerTable extends Migration
      */
     public function up()
     {
-        Schema::create('simpan_loker', function (Blueprint $table) {
+        Schema::create('uploads', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id');
-            $table->integer('post_id');
+            $table->string('pasfoto');
+            $table->string('ktp');
+            $table->string('skck');
+            $table->string('skd');
+            $table->string('ijazah');
+            $table->string('cv');
             $table->timestamps();
         });
     }
@@ -28,6 +33,6 @@ class CreateSimpanLokerTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('simpan_loker');
+        Schema::dropIfExists('uploads');
     }
 }

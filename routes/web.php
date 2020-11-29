@@ -12,10 +12,13 @@ use App\Http\Controllers\Dashboard\ManagementLokerController;
 use App\Http\Controllers\Auth\DaftarUsercontroller;
 use App\Http\Controllers\Auth\DaftarPerusahaanController;
 use App\Http\Controllers\User\ProfileController;
+use App\Http\Controllers\User\PendidikanController;
+use App\Http\Controllers\User\UploadsController;
 use App\http\Controllers\Company\ProfileCompanyController;
 use App\Http\Controllers\Company\PostLokerController;
 use App\Http\Controllers\Company\PelamarController;
 use App\Http\Controllers\Company\InterviewController;
+use App\Http\Controllers\SimpanLokerController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\HomeController;
 use App\Http\Middleware\CheckRole;
@@ -35,16 +38,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes(['register'=>false]);
+
+Auth::routes(['verify' => true]);
 
 
 // ROUTE HALAMAN UTAMA SETELAH LOGIN
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/lowongan-kerja', [HomeController::class, 'index'])->name('home');
 
 
 
 // ROUTE REDIRECT SAAT LOGIN
-Route::get('/', [HomeController::class, 'redirectLogin'])->name('redirectLogin');
+Route::get('/redirect', [HomeController::class, 'redirectLogin'])->name('redirectLogin');
 
 
 
@@ -56,8 +60,10 @@ Route::post('/lowongan-kerja/detail/{id}',
 	[PelamarController::class,'store'])->name('lowongan-kerja.melamar');
 Route::get('/lowongan-kerja/detail/{id}/hapus',
 	[PelamarController::class,'destroy'])->name('lowongan-kerja.hapus');
-
-
+Route::post('lowongan-kerja/simpan',[SimpanLokerController::class, 'create'])->name('simpan.loker'); 
+Route::get('lowongan-kerja/batal-simpan/{post_id}',[SimpanLokerController::class, 'destroy'])->name('nonsimpan.loker'); 
+Route::post('lowongan-kerja/',[HomeController::class, 'lokerfilterkategori'])->name('lokerfilterkategori');
+Route::get('lowongan-kerja/kategori/{slug}',[HomeController::class, 'showlokerfilterkategori'])->name('showlokerfilterkategori');
 
 
 
@@ -126,6 +132,21 @@ Route::middleware(['checkrole:user'])->group(function () {
 Route::resource('user/profile',ProfileController::class);
 Route::get('/lamaran-saya',[PelamarController::class, 'listLamaranUser'])->name('lamaran.index');
 Route::get('/user/jadwal-interiew',[InterviewController::class, 'myinterview'])->name('myinterview.index');
+Route::get('/user/lowongan-kerja-tersimpan',[SimpanLokerController::class, 'index'])->name('loker.favorit');
+Route::resource('/user/cv/pendidikan',PendidikanController::class);
+Route::get('/user/upload/',[UploadsController::class,'index'])->name('upload.index');
+Route::get('/user/upload/cv/{id}',[UploadsController::class,'cv'])->name('upload.cv');
+Route::post('/user/upload/cv/{id}',[UploadsController::class,'cvUp'])->name('cv.up');
+Route::get('/user/upload/ktp/{id}',[UploadsController::class,'ktp'])->name('upload.ktp');
+Route::post('/user/upload/ktp/{id}',[UploadsController::class,'ktpUp'])->name('ktp.up');
+Route::get('/user/upload/ijazah/{id}',[UploadsController::class,'ijazah'])->name('upload.ijazah');
+Route::post('/user/upload/ijazah/{id}',[UploadsController::class,'IjazahUp'])->name('ijazah.up');
+Route::get('/user/upload/skck/{id}',[UploadsController::class,'skck'])->name('upload.skck');
+Route::post('/user/upload/skck/{id}',[UploadsController::class,'SkckUp'])->name('skck.up');
+Route::get('/user/upload/skd/{id}',[UploadsController::class,'skd'])->name('upload.skd');
+Route::post('/user/upload/skd/{id}',[UploadsController::class,'SkdUp'])->name('skd.up');
+Route::get('/user/upload/pasfoto/{id}',[UploadsController::class,'pasfoto'])->name('upload.pasfoto');
+Route::post('/user/upload/pasfoto/{id}',[UploadsController::class,'PasfotoUp'])->name('pasfoto.up');
 
 });
 

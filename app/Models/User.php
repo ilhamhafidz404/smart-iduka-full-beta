@@ -8,7 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
     use HasFactory, Notifiable;
     use HasRoles;
@@ -43,9 +43,19 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function uploads()
+    {
+        return $this->hasOne('App\Models\Uploads');
+    }
+
     public function profile()
     {
         return $this->hasOne('App\Models\Profile');
+    }
+
+    public function pendidikan()
+    {
+        return $this->hasOne('App\Models\Pendidikan');
     }
     
     public function profileCompany()

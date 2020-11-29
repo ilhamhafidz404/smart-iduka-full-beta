@@ -12,6 +12,7 @@
 {{$post->user_id}}
 <br>
 <br>
+{{simpanloker($post->id)->first()}}
 <br>
 <br>
 
@@ -40,16 +41,24 @@
 		<input type="hidden" name="company_id" value="{{$post->user_id}}">
 		<input type="hidden" name="post_id" value="{{$post->user_id}}">
 		<input type="hidden" name="user_id" value="{{auth()->user()->id}}">
-		<button class="btn btn-primary" onclick="confirm(' Anda melamar pekerjaan {{$post->title}} \n yang diselenggarakan oleh {{$post->CompanyProfile->name}} \n Data riwayat hidup anda akan dikirim ke perusahaan terkait \n untuk menyesuaikan kualifikasi yang dibutuhkan perusahaan terkait. \n Tunggu informasi penerimaan dari perusahaan terkait!')">Lamar Sekarang</button>
+		<button class="btn btn-primary" onclick="confirm(' Anda melamar pekerjaan {{$post->title}} \n yang diselenggarakan oleh {{$post->user->profileCompany->name}} \n Data riwayat hidup anda akan dikirim ke perusahaan terkait \n untuk menyesuaikan kualifikasi yang dibutuhkan perusahaan terkait. \n Tunggu informasi penerimaan dari perusahaan terkait!')">Lamar Sekarang</button>
 	</form>
 	@endif
 		<br>
-<form method="POST" action="">
+		@if(simpanloker($post->id)->count() == 0)
+<form method="POST" action="{{route('simpan.loker')}}">
 	@csrf
-	<input type="hidden" name="post_id">
-	<input type="hidden" name="user_id">
-	<button class="btn btn-warning">Simpan lowongan kerja</button>
-</form>	
+	<input type="hidden" name="post_id" value="{{$post->id}}">
+	<input type="hidden" name="user_id" value="{{auth()->user()->id}}">
+	<button class="btn btn-warning">Simpan lowongan kerja ke favorit</button>
+</form>
+@endif
+@if(simpanloker($post->id)->count() > 0)
+<a href="{{route('nonsimpan.loker',$post->id)}}" class="btn btn-danger">Batal Simpan lowongan kerja ke favorit</a>
+
+@endif
+
+
 @endrole
 
 

@@ -21,6 +21,7 @@ class InterviewController extends Controller
     public function store(Request $request,$id)
     {
     	Interview::create([
+            'user_id' => $request->user_id,
     		'pelamar_id' => $id,
     		'tempat' => $request->tempat,
     		'tanggal' => $request->tanggal,

@@ -52,6 +52,7 @@ class PostLokerController extends Controller
         'user_id' => auth()->user()->id,
         'lokasi' => $request->lokasi,
         'sbg' => $request->sbg,
+        'kuota' => $request->kuota,
         'kualifikasi' => $request->kualifikasi,
         'min_gaji' => $request->min_gaji,
         'deskripsi' => $request->deskripsi,
@@ -61,7 +62,7 @@ class PostLokerController extends Controller
 
         ]);     
    
-        return redirect()->route('lowongan-kerja.index');
+        return redirect()->route('lowongan-kerja.index')->with('success',"lowongan kerja Berhasil Ditambahkan!");
     }
 
     /**''
@@ -112,7 +113,7 @@ class PostLokerController extends Controller
         'slug' => Str::slug($request->title),
         ]);
 
-        return redirect()->route('lowongan-kerja.index'); 
+        return redirect()->route('lowongan-kerja.index')->with('success',"lowongan kerja Berhasil Diupdate!");
     }
 
     /**
@@ -121,10 +122,10 @@ class PostLokerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($slug)
     {
-        PostLoker::find($id)->delete();
+        PostLoker::where('slug',$slug)->delete();
      
-       return 'berhasil';
+       return redirect()->back()->with('success','Data Berhasil Dihapus');
     }
 }

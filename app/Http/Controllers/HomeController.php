@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\PostLoker;
 use App\Models\Pelamar;
 use App\Models\user;
+use App\Models\Kategori;
 
 class HomeController extends Controller
 {
@@ -17,7 +18,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware(['auth','verified']);
     }
 
     /**
@@ -89,11 +90,25 @@ class HomeController extends Controller
 
 
 
+    public function lokerfilterkategori(Request $request)
+    {
+        if($request->kategori == null)
+        {
+            return redirect()->route('home');
+        }
+        $kategori = Kategori::whereId($request->kategori)->first();
+        return redirect()->route('showlokerfilterkategori',$kategori->slug);
+        
+    }
 
 
+    public function showlokerfilterkategori($slug)
+    {
+        $kategori = Kategori::where('slug',$slug)->first();
+        $post = PostLoker::where('kategori_id',$kategori->id)->get();
 
-
-
+        return view('pages.lokerfilterkategori',compact('post','kategori'));
+    }
 
 
 }

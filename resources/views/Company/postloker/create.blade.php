@@ -45,14 +45,29 @@
               </span>
           @enderror
         </div>
-        <div class="form-group">
-          <label for="sbg">Posisi Pekerjaan</label>
-          <input class="form-control @error('sbg') is-invalid @enderror" name="sbg" id="sbg" type="text">
-          @error('sbg')
+        <div class="row">
+          <div class="col">
+              <div class="form-group">
+                <label for="sbg">Posisi Pekerjaan</label>
+                <input class="form-control @error('sbg') is-invalid @enderror" name="sbg" id="sbg" type="text">
+                @error('sbg')
+                <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+                </span>
+                @enderror
+              </div>
+          </div>
+          <div class="col">
+              <div class="form-group">
+              <label for="kuota">Karyawan yang dibutuhkan</label>
+              <input class="form-control @error('kuota') is-invalid @enderror" name="kuota" id="kuota" type="number">
+              @error('kuota')
               <span class="invalid-feedback" role="alert">
-                  <strong>{{ $message }}</strong>
+              <strong>{{ $message }}</strong>
               </span>
-          @enderror
+              @enderror
+              </div>
+          </div>
         </div>
         <div class="form-group">
           <label for="lokasi">Lokasi Kerja</label>

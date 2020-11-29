@@ -32,6 +32,7 @@
           <div class="col">
             <form action="{{route('interview.pelamar.post',$pelamar->id)}}" method="POST">
               @csrf
+              <input type="hidden" name="user_id" value="{{$pelamar->user->id}}">
           <div class="form-group">
             <label>Tempat (alamat lengkap dan tempat bertemu)</label>
               <input type="text" name="tempat" class="form-control">

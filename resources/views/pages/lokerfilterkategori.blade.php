@@ -9,19 +9,22 @@
 <!-- Main content -->
 <section class="content">
 <div class="container-fluid">
+                @if($post->count() == 0)
+                    <h1>LOWONGAN DENGAN KATEGORI {{$kategori->name}} KOSONG</h1>
+                @endif
+
 	<div class="row">
 		<div class="col-xs-12 col-md-8">
             <div class="row">
-                <form method="post" action="{{route('lokerfilterkategori')}}">
+               <form method="post" action="{{route('lokerfilterkategori')}}">
                     @csrf
                     <select name="kategori">
-                        <option value="" holder>Semua kategori</option>
+                        <option value="">Semua kategori</option>
                         @foreach(kategori() as $ktgr)
-                        <option value="{{$ktgr->id}}">{{$ktgr->name}}</option>
-                        <option value="{{$ktgr->slug}}" class="d-none"></option>
+                        <option value="{{$ktgr->id}}" @if($kategori->id == $ktgr->id) selected @endif>{{$ktgr->name}}</option>
                         @endforeach
                     </select>
-                    <button type="submit">Filter</button>
+                    <button>Filter</button>
                 </form>
             </div>
 			@foreach($post as $post)

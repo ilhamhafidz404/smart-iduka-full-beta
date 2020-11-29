@@ -23,9 +23,9 @@ class PostLoker extends Model
     	return $this->belongsTo('App\Models\User','user_id','id');
     }
 
-    public function companyProfile()
-    {
-        return $this->belongsTo('App\Models\ProfileCompany','user_id','user_id');
-    }
+    // public function companyProfile()
+    // {
+    //     return $this->belongsTo('App\Models\ProfileCompany','user_id','user_id');
+    // }
 
 }

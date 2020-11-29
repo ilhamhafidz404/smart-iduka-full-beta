@@ -17,6 +17,7 @@ class CreatePostLokerTable extends Migration
             $table->id();
             $table->integer('user_id');
             $table->integer('kategori_id');
+            $table->integer('kuota');
             $table->string('title');
             $table->string('sbg');
             $table->string('lokasi');

@@ -19,7 +19,7 @@
   
     <div class="card mb-3">
       <div class="card-header">
-        <h3>List Lamaran kerja saya</h3>
+        <h3 class="card-title">List Lamaran kerja saya</h3>
       </div>
       <div class="card-body">
         <table class="table table-bordered table-hover table-sm table-striped" id="table-lamaran">
@@ -46,6 +46,9 @@
               <td>
                 @if($lmr->status == 'success')
                 <span class="badge badge-success">lulus</span>
+                @endif
+                @if($lmr->status == 'process')
+                <span class="badge badge-warning">Interview</span>
                 @endif
                 @if($lmr->status == 'pending')
                 <span class="badge badge-warning">pending</span>

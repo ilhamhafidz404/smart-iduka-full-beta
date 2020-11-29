@@ -21,11 +21,12 @@
 		Belum interview
 		</h3>
 		</div>
-		<div class="card-body pad table-responsive">
+		<div class="card-body">
 		<table class="table table-bordered table-hover table-sm">
 		<thead class="table-primary">
 		<tr>
 		<th>No</th>
+		<th>Pelamar</th>
 		<th>Lowongan Kerja</th>
 		<th>Tempat Interview</th>
 		<th colspan="2">Jadwal interview</th>
@@ -68,8 +69,8 @@
 		Sudah Interview
 		</h3>
 		</div>
-		<div class="card-body pad table-responsive">
-		<table class="table table-bordered table-hover table-sm">
+		<div class="card-body">
+		<table class="table1 table-bordered table-hover table-sm">
 		<thead class="table-primary">
 		<tr>
 		<th>No</th>
@@ -83,6 +84,7 @@
 		</thead>
 		<tbody>
 				@foreach($invwSuccess as $invs)
+				@if($invs->pelamar->status == 'process')
 				<tr>
 				<td>{{$loop->iteration}}</td>
 				<td><a href="{{route('detail.perlamar',$invs->pelamar_id)}}" style="color:black;">{{$invs->pelamar->profile->name}}</a></td>
@@ -102,16 +104,17 @@
                document.getElementById('failed').submit();" title="tidak meloloskan pelamar"><i class="fas fa-times"></i></a>
 				</td>
 
-				<form id="success" action="{{route('keputusanAkhir',$invs->pelamar_id)}}" method="POST" class="d-none">
+				<form id="success" action="{{route('keputusanAkhir',$invs->pelamar_id)}}" method="POST" class="d-none" style="display: none;">
                       @csrf
                       <input type="hidden" name="status" value="success">
                       </form>
-                      <form action="{{route('keputusanAkhir',$invs->pelamar_id)}}" method="POST" class="d-none">
+                      <form action="{{route('keputusanAkhir',$invs->pelamar_id)}}" method="POST" class="d-none" style="display: none;">
                       @csrf
                       <input id="failed" type="hidden" name="status" value="failed">
                       </form>
+				@endif
 				@endforeach
-
+			</tr>
 		</tbody>
 		</table>
 		</div>
@@ -136,6 +139,11 @@
 <script type="text/javascript">
   $(document).ready(function(){
     $('.table').DataTable();
+  })
+</script>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('.table1').DataTable();
   })
 </script>
 @endsection

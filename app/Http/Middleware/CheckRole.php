@@ -18,7 +18,7 @@ class CheckRole
      */
     public function handle($request, Closure $next,...$roles)
     {
-      if(!Auth::user()->hasAnyRole($roles))
+      if(!Auth::user()->hasRole($roles))
       {
         return redirect()->back();
       }

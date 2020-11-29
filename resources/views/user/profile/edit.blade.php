@@ -56,10 +56,9 @@
                         <label>status Pernikahan</label>
                         <select disabled="" class="form-control" name="status_nikah">
                             <option value="">Pilih status Pernikahan</option>
-                                    <option value="Belum Menikah" @if($profile->status_nikah == 'Belum Menikah') selected @endif>Belum Menikah</option>
-                                    <option value="Sudah Menikah" @if($profile->status_nikah == 'Sudah Menikah') selected @endif> Sudah Menikah </option>
-                                    <option value="Cerai Hidup" @if($profile->status_nikah == 'Cerai Hidup') selected @endif> Cerai Hidup </option>
-                                    <option value="Cerai Mati" @if($profile->status_nikah == 'Cerai Mati') selected @endif> Cerai Mati </option>
+                                    @foreach(status_nikah() as $status)
+                                        <option value="{{$status->name}}" @if($profile->status_nikah == $status->name) selected @endif>{{$status->name}}</option>
+                                    @endforeach
                         </select>
                     </div>
                             </div>
@@ -149,10 +148,9 @@
                         <label>status Pernikahan</label>
                         <select class="form-control" name="status_nikah">
                             <option value="">Pilih status Pernikahan</option>
-                                    <option value="Belum Menikah" @if($profile->status_nikah == 'Belum Menikah') selected @endif>Belum Menikah</option>
-                                    <option value="Sudah Menikah" @if($profile->status_nikah == 'Sudah Menikah') selected @endif> Sudah Menikah </option>
-                                    <option value="Cerai Hidup" @if($profile->status_nikah == 'Cerai Hidup') selected @endif> Cerai Hidup </option>
-                                    <option value="Cerai Mati" @if($profile->status_nikah == 'Cerai Mati') selected @endif> Cerai Mati </option>
+                            @foreach(status_nikah() as $status)
+                            <option value="{{$status->name}}">{{$status->name}}</option>
+                            @endforeach
                         </select>
                     </div>
                             </div>
