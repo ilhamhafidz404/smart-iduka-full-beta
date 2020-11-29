@@ -39,11 +39,11 @@ Route::get('/', function () {
 });
 
 
-Auth::routes(['verify' => true]);
+Auth::routes(['regiter' => false]);
 
 
 // ROUTE HALAMAN UTAMA SETELAH LOGIN
-Route::get('/lowongan-kerja', [HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 
 
@@ -69,11 +69,10 @@ Route::get('lowongan-kerja/kategori/{slug}',[HomeController::class, 'showlokerfi
 
 
 /* ---------------------- ROUTE UNTUK PENDAFTARAN ----------------------*/
-Route::post('/daftar/pencari-kerja',[DaftarUserController::class, 'register']);
-Route::get('/daftar/pencari-kerja',[DaftarUserController::class, 'showRegistrationForm']);
-Route::post('/daftar/perusahaan',[DaftarPerusahaanController::class, 'register']);
-Route::get('/daftar/perusahaan',[DaftarPerusahaanController::class, 'showRegistrationForm']);
-
+Route::post('/daftar/pencari-kerja',[DaftarUserController::class, 'register'])->name('daftar.user');
+Route::get('/daftar',[DaftarUserController::class, 'showRegistrationForm']);
+Route::post('/daftar/perusahaan',[DaftarPerusahaanController::class, 'register'])->name('daftar.perusahaan');
+Route::get('/daftar',[DaftarPerusahaanController::class, 'showRegistrationForm']);
 
 
 /* ----------------------MENU UNTUK SUPER ADMIN DAN ADMIN ---------------------------*/

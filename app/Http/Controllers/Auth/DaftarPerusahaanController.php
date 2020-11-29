@@ -119,9 +119,11 @@ class DaftarPerusahaanController extends Controller
     protected function registered(Request $request,$user)
     {
     	$user->assignRole('company');
-	    $user->profileCompany()->save(new profileCompany);
+        $user->profileCompany()->save(new profileCompany);
+        
+        return redirect()->route('company');
 
-	    $this->guard()->logout();
-	    return redirect()->route('login')->with('success','Pendaftaran telah berhasil');
+	    // $this->guard()->logout();
+	    // return redirect()->route('login')->with('success','Pendaftaran telah berhasil');
     }
 }

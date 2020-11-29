@@ -16,6 +16,13 @@
 <br>
 <br>
 
+
+<table class="table">
+		<tr>
+			<td>{{$post->title}}</td>
+		</tr>
+	</table>
+
 @role('user')
 	@if($pelamar->count() > 0)
 		@if($pelamar->first()->status == 'success')
@@ -34,6 +41,9 @@
 			<a href="{{route('lowongan-kerja.hapus',$pelamar->first()->id)}}" class="btn btn-danger btn-sm">Batalkan Lamaran</a>
 		@endif
 	@endif
+
+
+
 
 	@if($pelamar->count() <= 0)
 	<form method="POST" action="{{route('lowongan-kerja.melamar',$post->id)}}">
