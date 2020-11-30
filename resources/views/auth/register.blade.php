@@ -110,41 +110,41 @@
             </div>
             <div class="password-field">
               <i class="fas fa-lock"></i>
-              <input type="password" placeholder="Password" class="form-password" name="password_confirmation" />
+              <input type="password" placeholder="Confirm-Password" class="form-password" name="password_confirmation" />
               <i class="far fa-eye"><input type="checkbox" class="form-checkbox"></i>
             </div>
             
             <button type="submit" class="btn solid">Registrasi</button>
 
-            <a href="../index.html">Kembali</a>
+            <a href="/">Kembali</a>
           </form>
 
 
 
           <form action="{{route('daftar.perusahaan')}}" class="sign-up-form" method="POST">
               @csrf
-            <h2 class="title">Daftar - Perusahaan</h2>
-            <div class="input-field">
-              <i class="fas fa-user"></i>
-              <input type="text" placeholder="Username" name="username" />
-            </div>
-            <div class="input-field">
-              <i class="fas fa-envelope"></i>
-              <input type="email" placeholder="Email" name="email" />
-            </div>
-            <div class="password-field">
-              <i class="fas fa-lock"></i>
-              <input type="password" placeholder="Password" class="form-password" name="password" />
-              <i class="far fa-eye"><input type="checkbox" class="form-checkbox"></i>
-            </div>
-            <div class="password-field">
-              <i class="fas fa-lock"></i>
-              <input type="password" placeholder="Password" class="form-password" name="password_confirmation" />
-              <i class="far fa-eye"><input type="checkbox" class="form-checkbox"></i>
-            </div>
+              <h2 class="title">Daftar - Perusahaan</h2>
+              <div class="input-field">
+                <i class="fas fa-user"></i>
+                <input type="text" placeholder="Username" name="username" />
+              </div>
+              <div class="input-field">
+                <i class="fas fa-envelope"></i>
+                <input type="email" placeholder="Email" name="email" />
+              </div>
+              <div class="password-field">
+                <i class="fas fa-lock"></i>
+                <input type="password" placeholder="Password" class="form-password" name="password" />
+                <i class="far fa-eye"><input type="checkbox" class="form-checkbox"></i>
+              </div>
+              <div class="password-field">
+                <i class="fas fa-lock"></i>
+                <input type="password" placeholder="Confirm-Password" class="form-password" name="password_confirmation" />
+                <i class="far fa-eye"><input type="checkbox" class="form-checkbox"></i>
+              </div>
             <button type="submit" class="btn">registrasi</button>
 
-            <a href="../index.html">Kembali</a>
+            <a href="/">Kembali</a>
           </form>
 
         </div>

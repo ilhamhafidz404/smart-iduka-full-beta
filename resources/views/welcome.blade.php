@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="{{asset('frontend/fontawesome-free/css/all.min.css')}}">
 
     <!-- MyStyle -->
     <link rel="stylesheet" href="{{asset('frontend/css/myCSS/style.css')}}">
@@ -60,8 +60,8 @@
                         </div>
                         <div class="col-sm">
                             <div class="img text-right">
-                                <img src="img/vektor/businessman-meditating.png" alt="">
-                                <img src="img/vektor/masthead-icon.png" alt="">
+                                <img src="{{asset('frontend/img/vektor/businessman-meditating.png')}}" alt="">
+                                <img src="{{asset('frontend/img/vektor/masthead-icon.png')}}" alt="">
                             </div>
                         </div>
                     </div>
@@ -94,10 +94,10 @@
                 <div class="col-md-8">
                     <div class="container-slider">
                         <ul class="slider" id="slider">
-                            <li><img src="img/vektor/slider/slide1.png" alt=""></li>
-                            <li><img src="img/vektor/slider/slide2.jpg" alt=""></li>
-                            <li><img src="img/vektor/slider/slide3.png" alt=""></li>
-                            <li><img src="img/vektor/slider/slide4.jpg" alt=""></li>
+                            <li><img src="{{asset('frontend/img/vektor/slider/slide1.png')}}" alt=""></li>
+                            <li><img src="{{asset('frontend/img/vektor/slider/slide2.jpg')}}" alt=""></li>
+                            <li><img src="{{asset('frontend/img/vektor/slider/slide3.png')}}" alt=""></li>
+                            <li><img src="{{asset('frontend/img/vektor/slider/slide4.jpg')}}" alt=""></li>
                         </ul>
                     </div>
                     <div class="controller">
@@ -151,7 +151,7 @@
                 <div class="card-body">
                   <h5 class="card-title">IDUKA</h5>
                   <p class="card-text">"Smart IDUKA ini dibangun untuk para Lulusan SMK Pertiwi khususnya dan umunya untuk masyarakat yang sedang mencari pekerjaan,, tentunya aplikasi kita ini memudahkan para pengangguran untuk mendapat pekerjaan"</p>
-                  <img src="img/owner.png" alt="">
+                  <img src="{{asset('frontend/img/owner.png')}}" alt="">
                 </div>
                 <div class="body-2"></div>
                 <div class="card-footer">
@@ -167,14 +167,14 @@
             <div class="container">
                 <h2 class="text-center font-weight-normal">Klien Kami</h2>
                 <section class="customer-logos slider">
-                    <div class="slide"><img src="img/cooperation/adidas.png" alt="logo"></div>
-                    <div class="slide"><img src="img/cooperation/facebook.png" alt="logo"></div>
-                    <div class="slide"><img src="img/cooperation//google.png" alt="logo"></div>
-                    <div class="slide"><img src="img/cooperation//instagram.png" alt="logo"></div>
-                    <div class="slide"><img src="img/cooperation//nike.png" alt="logo"></div>
-                    <div class="slide"><img src="img/cooperation//twitter.png" alt="logo"></div>
-                    <div class="slide"><img src="img/cooperation//uber.png" alt="logo"></div>
-                    <div class="slide"><img src="img/cooperation//youtube.png" alt="logo"></div>
+                    <div class="slide"><img src="{{asset('frontend/img/cooperation/adidas.png')}}" alt="logo"></div>
+                    <div class="slide"><img src="{{asset('frontend/img/cooperation/facebook.png')}}" alt="logo"></div>
+                    <div class="slide"><img src="{{asset('frontend/img/cooperation//google.png')}}" alt="logo"></div>
+                    <div class="slide"><img src="{{asset('frontend/img/cooperation//instagram.png')}}" alt="logo"></div>
+                    <div class="slide"><img src="{{asset('frontend/img/cooperation//nike.png')}}" alt="logo"></div>
+                    <div class="slide"><img src="{{asset('frontend/img/cooperation//twitter.png')}}" alt="logo"></div>
+                    <div class="slide"><img src="{{asset('frontend/img/cooperation//uber.png')}}" alt="logo"></div>
+                    <div class="slide"><img src="{{asset('frontend/img/cooperation//youtube.png')}}" alt="logo"></div>
                 </section>
             </div>
         </div>
@@ -255,7 +255,7 @@
                     <div class="regisCon">
                         <div class="goREG-content">
                             <h3 class="text-danger">Daftar Smart <span>IDUKA</span></h3>
-                            <img src="img/vektor/user2.png" alt=""><br>
+                            <img src="{{asset('frontend/img/vektor/user2.png')}}" alt=""><br>
                             <a href="{{url('daftar')}}" class="btn btn-danger">REGISTER</a>
                         </div>
                         <div class="partikel"></div>
@@ -300,63 +300,38 @@
 
 
 
-        <!--------------------------------Login--------------------------------------------------------- -->
+    <!--------------------------------Login--------------------------------------------------------- -->
 
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="login-input">
-        <div class="modal-header login-head">
-            <h3 class="modal-title" id="exampleModalLabel">Login</h3>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <form action="{{route('login')}}" method="POST">
-                @csrf
-                <input type="text" placeholder="Email" name="login">
-                <input type="password" placeholder="Password" name="password">
-                <button class="btn btn-success w-100">Log In</button>
-            </form>
-          </div>
-          <div class="skat">
-            <hr><p>atau Login dengan</p><hr>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="login-input">
+            <div class="modal-header login-head">
+                <h3 class="modal-title" id="exampleModalLabel">Login</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
             </div>
-          <div class="modalFooter">
-            <a href=""><i class="fab fa-google"></i></a>
-            <a href=""><i class="fab fa-facebook-f"></i></a>
-            <a href=""><i class="fab fa-twitter"></i></a>
-          </div>
-      </div>
+            <div class="modal-body">
+                <form action="{{route('login')}}" method="POST">
+                    @csrf
+                    <input type="text" placeholder="Email" name="login">
+                    <input type="password" placeholder="Password" name="password">
+                    <button class="btn btn-success w-100">Log In</button>
+                </form>
+            </div>
+            <div class="skat">
+                <hr><p>atau Login dengan</p><hr>
+                </div>
+            <div class="modalFooter">
+                <a href=""><i class="fab fa-google"></i></a>
+                <a href=""><i class="fab fa-facebook-f"></i></a>
+                <a href=""><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+        </div>
     </div>
-  </div>
-</div>
-
-	<!-- <div class="login-overlay" id="login">
-		<div class="login-input">
-			<div class="login-head">
-				<h3>Login</h3>
-				<a href="" class="close"><i class="fas fa-times"></i></a>
-			</div>
-			<form action="">
-				<input type="email" placeholder="Email">
-				<input type="password" placeholder="Password">
-				<button>Log In</button>
-			</form>
-			<div class="login-feet">
-				<div class="skat">
-					<hr><p>atau Login dengan</p><hr>
-				</div>
-				<div class="sosmed-footer">
-					<a href=""><i class="fab fa-google"></i></a>
-					<a href=""><i class="fab fa-facebook-f"></i></a>
-					<a href=""><i class="fab fa-twitter"></i></a>
-				</div>
-				<p>Belum punya akun? <a href="form/register.html">Sign Up</a></p>
-			</div>
-		</div>
-	</div> -->
+    </div>
 
 
 
@@ -366,15 +341,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
 
     <!-- MY SCRIPT -->
-    <script src="js/myJS/script.js"></script>
-    <script src="js/myJS/jquery.js"></script>
-
-    <!-- Option 2: jQuery, Popper.js, and Bootstrap JS
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
-    -->
-
+    <script src="{{asset('frontend/js/myJS/script.js')}}"></script>
+    <script src="{{asset('frontend/js/myJS/jquery.js')}}"></script>
   </body>
 </html>
 

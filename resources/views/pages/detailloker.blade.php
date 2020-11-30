@@ -52,6 +52,7 @@
 		<input type="hidden" name="post_id" value="{{$post->user_id}}">
 		<input type="hidden" name="user_id" value="{{auth()->user()->id}}">
 		<button class="btn btn-primary" onclick="confirm(' Anda melamar pekerjaan {{$post->title}} \n yang diselenggarakan oleh {{$post->user->profileCompany->name}} \n Data riwayat hidup anda akan dikirim ke perusahaan terkait \n untuk menyesuaikan kualifikasi yang dibutuhkan perusahaan terkait. \n Tunggu informasi penerimaan dari perusahaan terkait!')">Lamar Sekarang</button>
+		<h1>dilhfvoewugvouegwhgfvio</h1>
 	</form>
 	@endif
 		<br>
