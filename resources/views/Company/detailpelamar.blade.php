@@ -14,7 +14,7 @@
   
     
 
-<h1>Detail Pelamar</h1>
+<h1>Detail Pelamar regerg</h1>
 {{$pelamar->profile}}
 
 <h1>Detail Postingan</h1>

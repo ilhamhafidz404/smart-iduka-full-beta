@@ -38,7 +38,7 @@
 <div class="wrapper">
 
   <!-- Navbar -->
-  <nav class="main-header navbar navbar-expand navbar-primary navbar-light">
+  <nav class="main-header navbar navbar-expand navbar-dark navbar-light">
     <!-- Left navbar links -->
     <ul class="navbar-nav">
       <li class="nav-item">
@@ -223,13 +223,13 @@
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="{{url('/management/lowongan-kerja/create')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="fas fa-folder-plus nav-icon"></i>
                   <p>Tambah loker</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{route('lowongan-kerja.index')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="fas fa-clipboard-list nav-icon"></i>
                   <p>List Lowongan Kerja</p>
                 </a>
               </li>
@@ -246,7 +246,7 @@
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="{{route('pelamar.index')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="fas fa-stopwatch nav-icon"></i>
                   <p>Belum Diproses</p>
                   @if(countPelamarPendingInCompany() > 0)
                   <span class="badge badge-info right">{{countPelamarPendingInCompany()}}</span>
@@ -255,13 +255,13 @@
               </li>
               <li class="nav-item">
                 <a href="{{route('pelamar.gagal')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="fas fa-times nav-icon"></i>
                   <p>lamaran gagal</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{route('pelamar.lolos')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="fas fa-check nav-icon"></i>
                   <p>lamaran lolos</p>
                 </a>
               </li>
@@ -269,7 +269,7 @@
           </li>
           <li class="nav-item">
             <a href="{{url('management/perlamar/interview')}}" class="nav-link">
-              <i class="nav-icon fas fa-database"></i>
+              <i class="fas fa-calendar nav-icon"></i>
               <p>
                 jadwal Inteview
               </p>
@@ -294,13 +294,13 @@
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="{{url('/profile-perusahaan')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="fas fa-building nav-icon"></i>
                   <p>Profile Perusahaan</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="fas fa-id-card-alt nav-icon"></i>
                   <p>Pengaturan Akun</p>
                 </a>
               </li>
@@ -311,7 +311,7 @@
                 class="nav-link"
                 onclick="event.preventDefault();
                document.getElementById('logout-form').submit();">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="fas fa-sign-out-alt nav-icon"></i>
                   <p>Logout</p>
                 </a>
               </li>
@@ -340,7 +340,6 @@
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item active"><a href="#">Dashboard</a></li>
               <li class="breadcrumb-item active"></li>
             </ol>
           </div><!-- /.col -->
@@ -349,12 +348,14 @@
     </div>
     <!-- /.content-header -->
 
+
+
 @yield('content')
 
 
     </div>
   <!-- /.content-wrapper -->
-  <footer class="main-footer">
+  <footer class="main-footer bg-dark">
     <strong>Copyright &copy; 2020 <a href="https://adminlte.io">Smart iduka</a>.</strong>
     All rights reserved.
     <div class="float-right d-none d-sm-inline-block">
